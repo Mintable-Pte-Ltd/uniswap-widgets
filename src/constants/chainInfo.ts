@@ -251,6 +251,16 @@ const CHAIN_INFO: ChainInfoMap = {
     color: '#0152ff',
     backgroundColor: '#0152ff',
   },
+  [SupportedChainId.LOCALHOST]: {
+    networkType: NetworkType.L1,
+    docs: 'https://docs.uniswap.org/',
+    explorer: 'https://etherscan.io/',
+    infoLink: 'https://info.uniswap.org/#/',
+    label: 'Ethereum',
+    logoUrl: ethereumLogoUrl,
+    nativeCurrency: { name: 'Mintable Ether', symbol: 'mETH', decimals: 18 },
+    color: '#627EEA',
+  },
 }
 
 export function getChainInfo(chainId: SupportedL1ChainId): L1ChainInfo

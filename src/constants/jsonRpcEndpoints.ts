@@ -95,4 +95,5 @@ export const JSON_RPC_FALLBACK_ENDPOINTS: Record<SupportedChainId, string[]> = {
     'https://1rpc.io/base',
     'https://base.meowrpc.com',
   ],
+  [SupportedChainId.LOCALHOST]: ['http://18.141.99.24:8545/'],
 }

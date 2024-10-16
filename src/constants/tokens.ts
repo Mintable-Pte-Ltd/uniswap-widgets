@@ -153,6 +153,7 @@ export const USDC: { [chainId in SupportedChainId]: Token } = {
   [SupportedChainId.ROPSTEN]: USDC_ROPSTEN,
   [SupportedChainId.BNB]: USDC_BNB_CHAIN,
   [SupportedChainId.BASE]: USDC_BASE,
+  [SupportedChainId.LOCALHOST]: USDC_MAINNET,
 }
 export const DAI_POLYGON = new Token(
   SupportedChainId.POLYGON,
@@ -598,5 +599,6 @@ export const TOKEN_SHORTHANDS: { [shorthand: string]: { [chainId in SupportedCha
     [SupportedChainId.CELO]: PORTAL_USDC_CELO.address,
     [SupportedChainId.CELO_ALFAJORES]: USDC_CELO_ALFAJORES.address,
     [SupportedChainId.BASE]: USDC_BASE.address,
+    [SupportedChainId.LOCALHOST]: USDC_MAINNET.address,
   },
 }

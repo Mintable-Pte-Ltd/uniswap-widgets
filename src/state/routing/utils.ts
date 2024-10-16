@@ -74,10 +74,12 @@ export function transformQuoteToTradeResult(args: GetQuoteArgs, data: QuoteData)
   const routes = computeRoutes(tokenInIsNative, tokenOutIsNative, data.route)
 
   const trade = new InterfaceTrade({
+    // @ts-ignore
     v2Routes:
       routes
         ?.filter(
-          (r): r is typeof routes[0] & { routev2: NonNullable<typeof routes[0]['routev2']> } => r.routev2 !== null
+          // @ts-ignore
+          (r): r is (typeof routes)[0] & { routev2: NonNullable<(typeof routes)[0]['routev2']> } => r.routev2 !== null
         )
         .map(({ routev2, inputAmount, outputAmount }) => ({
           routev2,
@@ -87,7 +89,7 @@ export function transformQuoteToTradeResult(args: GetQuoteArgs, data: QuoteData)
     v3Routes:
       routes
         ?.filter(
-          (r): r is typeof routes[0] & { routev3: NonNullable<typeof routes[0]['routev3']> } => r.routev3 !== null
+          (r): r is (typeof routes)[0] & { routev3: NonNullable<(typeof routes)[0]['routev3']> } => r.routev3 !== null
         )
         .map(({ routev3, inputAmount, outputAmount }) => ({
           routev3,
@@ -97,7 +99,7 @@ export function transformQuoteToTradeResult(args: GetQuoteArgs, data: QuoteData)
     mixedRoutes:
       routes
         ?.filter(
-          (r): r is typeof routes[0] & { mixedRoute: NonNullable<typeof routes[0]['mixedRoute']> } =>
+          (r): r is (typeof routes)[0] & { mixedRoute: NonNullable<(typeof routes)[0]['mixedRoute']> } =>
             r.mixedRoute !== null
         )
         .map(({ mixedRoute, inputAmount, outputAmount }) => ({

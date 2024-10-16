@@ -23,6 +23,8 @@ export enum SupportedChainId {
   BNB = 56,
 
   BASE = 8453,
+
+  LOCALHOST = 31337,
 }
 
 export enum ChainName {
@@ -41,6 +43,7 @@ export enum ChainName {
   CELO_ALFAJORES = 'celo-alfajores',
   BNB = 'bnb',
   BASE = 'base',
+  LOCALHOST = 'localhost',
 }
 
 export const CHAIN_NAMES_TO_IDS: { [chainName: string]: SupportedChainId } = {
@@ -59,6 +62,7 @@ export const CHAIN_NAMES_TO_IDS: { [chainName: string]: SupportedChainId } = {
   [ChainName.CELO_ALFAJORES]: SupportedChainId.CELO_ALFAJORES,
   [ChainName.BNB]: SupportedChainId.BNB,
   [ChainName.BASE]: SupportedChainId.BASE,
+  [ChainName.LOCALHOST]: SupportedChainId.LOCALHOST,
 }
 
 /**
@@ -76,6 +80,7 @@ export const SUPPORTED_GAS_ESTIMATE_CHAIN_IDS = [
   SupportedChainId.CELO,
   SupportedChainId.BNB,
   SupportedChainId.BASE,
+  SupportedChainId.LOCALHOST,
 ]
 
 /**
@@ -91,9 +96,10 @@ export const L1_CHAIN_IDS = [
   SupportedChainId.POLYGON_MUMBAI,
   SupportedChainId.CELO,
   SupportedChainId.CELO_ALFAJORES,
+  SupportedChainId.LOCALHOST,
 ] as const
 
-export type SupportedL1ChainId = typeof L1_CHAIN_IDS[number]
+export type SupportedL1ChainId = (typeof L1_CHAIN_IDS)[number]
 
 /**
  * Controls some L2 specific behavior, e.g. slippage tolerance, special UI behavior.
@@ -107,7 +113,7 @@ export const L2_CHAIN_IDS = [
   SupportedChainId.BASE,
 ] as const
 
-export type SupportedL2ChainId = typeof L2_CHAIN_IDS[number]
+export type SupportedL2ChainId = (typeof L2_CHAIN_IDS)[number]
 
 export function isPolygonChain(chainId: number): chainId is SupportedChainId.POLYGON | SupportedChainId.POLYGON_MUMBAI {
   return chainId === SupportedChainId.POLYGON || chainId === SupportedChainId.POLYGON_MUMBAI

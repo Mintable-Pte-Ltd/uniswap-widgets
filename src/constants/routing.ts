@@ -95,6 +95,14 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.BNB],
   ],
   [SupportedChainId.BASE]: [...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.BASE], DAI_BASE, USDC_BASE],
+  [SupportedChainId.LOCALHOST]: [
+    nativeOnChain(SupportedChainId.MAINNET),
+    DAI,
+    USDC_MAINNET,
+    USDT,
+    WBTC,
+    ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.MAINNET],
+  ],
 }
 export const ADDITIONAL_BASES: { [chainId: number]: { [tokenAddress: string]: Token[] } } = {
   [SupportedChainId.MAINNET]: {
